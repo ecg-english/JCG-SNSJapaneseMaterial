@@ -84,12 +84,12 @@ function App() {
       {/* ヘッダー */}
       <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-2">
+            <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent whitespace-nowrap">
               📱 SNS Japanese Master
             </h1>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-gray-600 whitespace-nowrap">
                 Learned: {learnedPosts.length} / {snsPosts.length}
               </span>
             </div>
