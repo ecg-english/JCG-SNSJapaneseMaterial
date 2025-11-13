@@ -14,6 +14,16 @@ function ExpressionModal({ expression, onClose }: ExpressionModalProps) {
     'フォーマル': 'bg-purple-100 text-purple-800 border-purple-300'
   };
 
+  const getFormalityLabel = (formality: string): string => {
+    const labels: { [key: string]: string } = {
+      'とてもカジュアル': 'Very Casual',
+      'カジュアル': 'Casual',
+      '普通': 'Normal',
+      'フォーマル': 'Formal'
+    };
+    return labels[formality] || formality;
+  };
+
   const handleSpeak = () => {
     if ('speechSynthesis' in window) {
       const utterance = new SpeechSynthesisUtterance(expression.text);
@@ -57,7 +67,7 @@ function ExpressionModal({ expression, onClose }: ExpressionModalProps) {
           <div>
             <h3 className="text-sm font-semibold text-gray-600 mb-2">Formality Level</h3>
             <span className={`inline-block px-4 py-2 rounded-lg font-bold border-2 ${formalityColors[expression.formality]}`}>
-              {expression.formality}
+              {getFormalityLabel(expression.formality)}
             </span>
           </div>
 

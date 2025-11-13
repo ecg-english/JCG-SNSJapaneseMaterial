@@ -32,6 +32,21 @@ function FilterPanel({
     'トレンド',
     '日常会話'
   ];
+
+  const getCategoryLabel = (category: Category): string => {
+    const labels: { [key: string]: string } = {
+      '若者言葉': 'Youth Language',
+      'ネットスラング': 'Internet Slang',
+      '略語': 'Abbreviations',
+      '絵文字・顔文字': 'Emojis & Emoticons',
+      '挨拶': 'Greetings',
+      'リアクション': 'Reactions',
+      '感情表現': 'Emotional Expressions',
+      'トレンド': 'Trends',
+      '日常会話': 'Daily Conversation'
+    };
+    return labels[category] || category;
+  };
   const platforms: { value: SNSPlatform; label: string; icon: string }[] = [
     { value: 'twitter', label: 'Twitter/X', icon: '𝕏' },
     { value: 'instagram', label: 'Instagram', icon: '📷' },
@@ -67,14 +82,14 @@ function FilterPanel({
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 mb-6 border-2 border-gray-200">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-bold text-gray-800">フィルター</h3>
+        <h3 className="text-lg font-bold text-gray-800">Filter</h3>
         {hasActiveFilters && (
           <button
             onClick={onClear}
             className="flex items-center gap-2 text-sm text-red-600 hover:text-red-800 font-medium"
           >
             <X size={16} />
-            すべてクリア
+            Clear All
           </button>
         )}
       </div>
@@ -82,7 +97,7 @@ function FilterPanel({
       <div className="space-y-6">
         {/* JLPTレベル */}
         <div>
-          <h4 className="text-sm font-semibold text-gray-600 mb-3">JLPTレベル</h4>
+          <h4 className="text-sm font-semibold text-gray-600 mb-3">JLPT Level</h4>
           <div className="flex flex-wrap gap-2">
             {levels.map(level => (
               <button
@@ -102,7 +117,7 @@ function FilterPanel({
 
         {/* プラットフォーム */}
         <div>
-          <h4 className="text-sm font-semibold text-gray-600 mb-3">プラットフォーム</h4>
+          <h4 className="text-sm font-semibold text-gray-600 mb-3">Platform</h4>
           <div className="flex flex-wrap gap-2">
             {platforms.map(platform => (
               <button
@@ -123,7 +138,7 @@ function FilterPanel({
 
         {/* カテゴリー */}
         <div>
-          <h4 className="text-sm font-semibold text-gray-600 mb-3">カテゴリー</h4>
+          <h4 className="text-sm font-semibold text-gray-600 mb-3">Category</h4>
           <div className="flex flex-wrap gap-2">
             {categories.map(category => (
               <button
@@ -135,7 +150,7 @@ function FilterPanel({
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                {category}
+                {getCategoryLabel(category)}
               </button>
             ))}
           </div>

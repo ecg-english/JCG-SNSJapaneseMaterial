@@ -15,10 +15,10 @@ function FavoritesPanel({ favorites, posts, onToggleFavorite }: FavoritesPanelPr
     return (
       <div className="text-center py-20">
         <Heart size={64} className="mx-auto text-gray-300 mb-4" />
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">お気に入りはまだありません</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">No favorites yet</h2>
         <p className="text-gray-600">
-          投稿のブックマークアイコンをクリックして、<br />
-          お気に入りに追加しましょう！
+          Click the bookmark icon on posts<br />
+          to add them to your favorites!
         </p>
       </div>
     );
@@ -29,10 +29,10 @@ function FavoritesPanel({ favorites, posts, onToggleFavorite }: FavoritesPanelPr
       <div className="bg-white rounded-xl shadow-lg p-6 mb-6 border-2 border-pink-200">
         <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
           <Heart className="text-pink-500" fill="currentColor" />
-          お気に入り
+          Favorites
         </h2>
         <p className="text-gray-600 mt-2">
-          {favoritePosts.length}件の投稿がお気に入りに登録されています
+          {favoritePosts.length} post{favoritePosts.length !== 1 ? 's' : ''} saved as favorites
         </p>
       </div>
 

@@ -65,21 +65,21 @@ function QuizMode() {
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
             <Trophy className="text-yellow-500" />
-            クイズモード
+            Quiz Mode
           </h2>
           <button
             onClick={restartAllQuizzes}
             className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium text-gray-700 transition-all"
           >
             <RotateCcw size={16} />
-            最初から
+            Start Over
           </button>
         </div>
         
         <div className="space-y-2">
           <div className="flex justify-between text-sm text-gray-600">
-            <span>進捗: {completedQuizzes} / {quizzes.length}</span>
-            <span>正解率: {completedQuizzes > 0 ? Math.round((correctAnswers / completedQuizzes) * 100) : 0}%</span>
+            <span>Progress: {completedQuizzes} / {quizzes.length}</span>
+            <span>Accuracy: {completedQuizzes > 0 ? Math.round((correctAnswers / completedQuizzes) * 100) : 0}%</span>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-3">
             <div
@@ -95,10 +95,10 @@ function QuizMode() {
         <div className="mb-6">
           <div className="flex items-center justify-between mb-4">
             <span className="text-sm font-semibold text-purple-600">
-              問題 {currentQuizIndex + 1} / {quizzes.length}
+              Question {currentQuizIndex + 1} / {quizzes.length}
             </span>
             <span className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-bold">
-              {currentQuiz.type === 'multiple-choice' ? '選択問題' : '記述問題'}
+              {currentQuiz.type === 'multiple-choice' ? 'Multiple Choice' : 'Fill in the Blank'}
             </span>
           </div>
           
@@ -146,7 +146,7 @@ function QuizMode() {
               value={userAnswer}
               onChange={(e) => setUserAnswer(e.target.value)}
               disabled={showResult}
-              placeholder="答えを入力してください"
+              placeholder="Enter your answer"
               className="w-full p-4 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 text-lg"
             />
           </div>
@@ -161,25 +161,25 @@ function QuizMode() {
               {isCorrect ? (
                 <>
                   <CheckCircle2 className="text-green-600" size={28} />
-                  <span className="text-xl font-bold text-green-800">正解！</span>
+                  <span className="text-xl font-bold text-green-800">Correct!</span>
                 </>
               ) : (
                 <>
                   <XCircle className="text-red-600" size={28} />
-                  <span className="text-xl font-bold text-red-800">不正解</span>
+                  <span className="text-xl font-bold text-red-800">Incorrect</span>
                 </>
               )}
             </div>
             
             {!isCorrect && currentQuiz.type === 'fill-in-blank' && (
               <p className="text-gray-700 mb-2">
-                <span className="font-semibold">正解: </span>
+                <span className="font-semibold">Correct Answer: </span>
                 {currentQuiz.correctAnswer}
               </p>
             )}
             
             <p className="text-gray-700 leading-relaxed">
-              <span className="font-semibold">解説: </span>
+              <span className="font-semibold">Explanation: </span>
               {currentQuiz.explanation}
             </p>
           </div>
@@ -196,7 +196,7 @@ function QuizMode() {
               }
               className="flex-1 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-lg hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              回答する
+              Submit Answer
             </button>
           ) : (
             <>
@@ -205,7 +205,7 @@ function QuizMode() {
                   onClick={handlePrevious}
                   className="px-6 py-4 bg-gray-200 text-gray-700 font-bold rounded-lg hover:bg-gray-300 transition-all"
                 >
-                  ← 前へ
+                  ← Previous
                 </button>
               )}
               {currentQuizIndex < quizzes.length - 1 ? (
@@ -213,7 +213,7 @@ function QuizMode() {
                   onClick={handleNext}
                   className="flex-1 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-lg hover:shadow-lg transition-all flex items-center justify-center gap-2"
                 >
-                  次の問題
+                  Next Question
                   <ArrowRight size={20} />
                 </button>
               ) : (
@@ -222,7 +222,7 @@ function QuizMode() {
                   className="flex-1 py-4 bg-gradient-to-r from-green-600 to-blue-600 text-white font-bold rounded-lg hover:shadow-lg transition-all flex items-center justify-center gap-2"
                 >
                   <RotateCcw size={20} />
-                  もう一度挑戦
+                  Try Again
                 </button>
               )}
             </>
@@ -234,14 +234,14 @@ function QuizMode() {
       {completedQuizzes === quizzes.length && (
         <div className="mt-6 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-xl shadow-lg p-6 border-2 border-yellow-300 text-center">
           <div className="text-5xl mb-3">🎉</div>
-          <h3 className="text-2xl font-bold text-gray-800 mb-2">すべてのクイズが完了しました！</h3>
+          <h3 className="text-2xl font-bold text-gray-800 mb-2">All quizzes completed!</h3>
           <p className="text-gray-700 mb-4">
-            正解率: <span className="text-2xl font-bold text-orange-600">{Math.round((correctAnswers / completedQuizzes) * 100)}%</span>
+            Accuracy: <span className="text-2xl font-bold text-orange-600">{Math.round((correctAnswers / completedQuizzes) * 100)}%</span>
           </p>
           <p className="text-gray-600">
             {correctAnswers === completedQuizzes
-              ? '完璧です！すべての問題に正解しました！🏆'
-              : '素晴らしい！この調子で学習を続けましょう！💪'}
+              ? 'Perfect! You got all questions correct! 🏆'
+              : 'Great job! Keep up the good work! 💪'}
           </p>
         </div>
       )}

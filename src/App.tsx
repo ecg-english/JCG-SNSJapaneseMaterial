@@ -86,11 +86,11 @@ function App() {
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              📱 SNS日本語マスター
+              📱 SNS Japanese Master
             </h1>
             <div className="flex items-center gap-2">
               <span className="text-sm text-gray-600">
-                学習済み: {learnedPosts.length} / {snsPosts.length}
+                Learned: {learnedPosts.length} / {snsPosts.length}
               </span>
             </div>
           </div>
@@ -106,7 +106,7 @@ function App() {
               }`}
             >
               <Home size={18} />
-              フィード
+              Feed
             </button>
             <button
               onClick={() => setViewMode('quiz')}
@@ -117,7 +117,7 @@ function App() {
               }`}
             >
               <Trophy size={18} />
-              クイズ
+              Quiz
             </button>
             <button
               onClick={() => setViewMode('favorites')}
@@ -128,7 +128,7 @@ function App() {
               }`}
             >
               <BookMarked size={18} />
-              お気に入り ({favorites.length})
+              Favorites ({favorites.length})
             </button>
           </div>
           
@@ -139,7 +139,7 @@ function App() {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
                 <input
                   type="text"
-                  placeholder="表現、タグ、内容を検索..."
+                  placeholder="Search expressions, tags, content..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -154,7 +154,7 @@ function App() {
                 }`}
               >
                 <Filter size={18} />
-                フィルター
+                Filter
               </button>
             </div>
           )}
@@ -182,12 +182,12 @@ function App() {
             <div className="space-y-6">
               {filteredPosts.length === 0 ? (
                 <div className="text-center py-12">
-                  <p className="text-gray-500 text-lg">投稿が見つかりませんでした</p>
+                  <p className="text-gray-500 text-lg">No posts found</p>
                   <button
                     onClick={clearFilters}
                     className="mt-4 text-blue-600 hover:underline"
                   >
-                    フィルターをクリア
+                    Clear filters
                   </button>
                 </div>
               ) : (
@@ -221,10 +221,10 @@ function App() {
       <footer className="bg-white border-t border-gray-200 mt-12 py-6">
         <div className="max-w-6xl mx-auto px-4 text-center text-gray-600">
           <p className="text-sm">
-            SNS日本語マスター - 実践的なSNS日本語表現を学ぼう 🎌
+            SNS Japanese Master - Learn practical SNS Japanese expressions 🎌
           </p>
           <p className="text-xs mt-2 text-gray-500">
-            効果的な学習のため、毎日少しずつ学習することをおすすめします
+            For effective learning, we recommend studying a little bit every day
           </p>
           <p className="text-xs mt-4 text-gray-400">
             © 2025 JCG Japanese Conversation Gym. All Rights Reserved.

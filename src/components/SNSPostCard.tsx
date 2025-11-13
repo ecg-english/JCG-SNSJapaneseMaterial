@@ -15,6 +15,31 @@ function SNSPostCard({ post, isLearned, isFavorite, onToggleFavorite, onMarkAsLe
   const [selectedExpression, setSelectedExpression] = useState<number | null>(null);
   const [showAllExpressions, setShowAllExpressions] = useState(false);
 
+  const getFormalityLabel = (formality: string): string => {
+    const labels: { [key: string]: string } = {
+      'とてもカジュアル': 'Very Casual',
+      'カジュアル': 'Casual',
+      '普通': 'Normal',
+      'フォーマル': 'Formal'
+    };
+    return labels[formality] || formality;
+  };
+
+  const getCategoryLabel = (category: string): string => {
+    const labels: { [key: string]: string } = {
+      '若者言葉': 'Youth Language',
+      'ネットスラング': 'Internet Slang',
+      '略語': 'Abbreviations',
+      '絵文字・顔文字': 'Emojis & Emoticons',
+      '挨拶': 'Greetings',
+      'リアクション': 'Reactions',
+      '感情表現': 'Emotional Expressions',
+      'トレンド': 'Trends',
+      '日常会話': 'Daily Conversation'
+    };
+    return labels[category] || category;
+  };
+
   const platformStyles = {
     twitter: {
       bg: 'bg-gradient-to-br from-blue-50 to-blue-100',
@@ -86,7 +111,7 @@ function SNSPostCard({ post, isLearned, isFavorite, onToggleFavorite, onMarkAsLe
               {post.level}
             </span>
             <span className="px-3 py-1 rounded-full text-xs font-medium bg-white text-gray-700 shadow-sm">
-              {post.category}
+              {getCategoryLabel(post.category)}
             </span>
           </div>
         </div>
@@ -167,7 +192,7 @@ function SNSPostCard({ post, isLearned, isFavorite, onToggleFavorite, onMarkAsLe
                     <span className="text-sm text-gray-500 ml-2">({expression.reading})</span>
                   </div>
                   <span className="text-xs px-2 py-1 bg-gray-100 rounded text-gray-600">
-                    {expression.formality}
+                    {getFormalityLabel(expression.formality)}
                   </span>
                 </div>
                 <p className="text-sm text-gray-600 mt-1">{expression.meaning}</p>
