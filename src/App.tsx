@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Search, Filter, BookMarked, Trophy, Home } from 'lucide-react';
-import { SNSPost, JLPTLevel, Category, SNSPlatform } from './types';
+import { JLPTLevel, Category, SNSPlatform } from './types';
 import { snsPosts } from './data/snsData';
 import SNSPostCard from './components/SNSPostCard';
 import FilterPanel from './components/FilterPanel';
