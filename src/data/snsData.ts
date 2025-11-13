@@ -485,44 +485,44 @@ export const quizzes: Quiz[] = [
   {
     id: 'quiz-001',
     type: 'multiple-choice',
-    question: '「マジで」の意味として最も適切なものはどれですか？',
-    options: ['本当に', 'たぶん', '少し', '全く〜ない'],
+    question: 'What is the most appropriate meaning of "マジで"?',
+    options: ['Really', 'Maybe', 'A little', 'Not at all'],
     correctAnswer: 0,
-    explanation: '「マジで」は「本当に」の非常にカジュアルな表現です。若者の間でよく使われます。',
+    explanation: '"マジで" is a very casual expression for "really". It is often used among young people.',
     relatedPostId: 'tw-001'
   },
   {
     id: 'quiz-002',
     type: 'fill-in-blank',
-    question: '「この写真、めっちゃ____！」\n（写真がとてもきれいで、SNSに投稿するのにぴったりという意味）',
+    question: '"この写真、めっちゃ____！"\n(This photo is very beautiful and perfect for posting on SNS)',
     correctAnswer: '映える',
-    explanation: '「映える」は写真映りが良い、見栄えが良いという意味で、特にInstagramなどのSNSでよく使われます。',
+    explanation: '"映える" means that something looks good in photos and has great visual appeal. It is commonly used on SNS platforms like Instagram.',
     relatedPostId: 'ig-001'
   },
   {
     id: 'quiz-003',
     type: 'multiple-choice',
-    question: '友達から「明日3時でおけまる？」と聞かれました。どういう意味ですか？',
-    options: ['明日3時でOK？', '明日3時は無理？', '明日3時に丸い？', '明日3時に終わる？'],
+    question: 'Your friend asked you "明日3時でおけまる？". What does this mean?',
+    options: ['Is 3 PM tomorrow OK?', 'Is 3 PM tomorrow impossible?', 'Is 3 PM tomorrow round?', 'Will it end at 3 PM tomorrow?'],
     correctAnswer: 0,
-    explanation: '「おけまる」は「OK」を可愛く言った若者言葉です。主にLINEなどのメッセージで使われます。',
+    explanation: '"おけまる" is a cute way of saying "OK" in youth slang. It is mainly used in messaging apps like LINE.',
     relatedPostId: 'line-001'
   },
   {
     id: 'quiz-004',
     type: 'multiple-choice',
-    question: '「それな」はどんな時に使いますか？',
-    options: ['相手に強く同意する時', '相手を否定する時', '質問する時', '謝る時'],
+    question: 'When do you use "それな"?',
+    options: ['When strongly agreeing with someone', 'When disagreeing with someone', 'When asking a question', 'When apologizing'],
     correctAnswer: 0,
-    explanation: '「それな」は相手の意見に強く同意する時に使うカジュアルな表現です。SNSでよく見かけます。',
+    explanation: '"それな" is a casual expression used when strongly agreeing with someone\'s opinion. You often see it on SNS.',
     relatedPostId: 'tw-003'
   },
   {
     id: 'quiz-005',
     type: 'fill-in-blank',
-    question: '「この投稿が____て、フォロワーが1000人増えた！」\n（SNSで急激に話題になった）',
+    question: '"この投稿が____て、フォロワーが1000人増えた！"\n(This post went viral on SNS)',
     correctAnswer: 'バズっ',
-    explanation: '「バズる」は英語の"buzz"から来た言葉で、SNSで急激に拡散され話題になることを意味します。',
+    explanation: '"バズる" comes from the English word "buzz" and means that something spreads rapidly and becomes a topic on SNS.',
     relatedPostId: 'tw-004'
   }
 ];
